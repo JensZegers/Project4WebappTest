@@ -52,4 +52,4 @@ jobs:
           app-name: 'Project4CityInfluencers'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0B3E59B32B754C5F92820A1CC7BE38E0 }}
-          package: ./dist/Project4CityInfluencers
+          package: ./dist/city-influencers-webapp
