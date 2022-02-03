@@ -1,0 +1,58 @@
+<div class="bgc px-1 px-md-5 pb-1 pb-md-3">
+  <div *ngIf="admin.userId != 0">
+    <div class="col-12 pt-1 pt-md-3">
+      <div class="row bb mb-2">
+        <div (click)="back()">
+          <i class="pointer fas fa-chevron-left pt-2"></i>
+        </div>
+        <h3 class="mx-auto">
+          {{ cityUser.user.firstName }} {{ cityUser.user.surname }}
+        </h3>
+      </div>
+    </div>
+    <div class="row pt-1 pt-md-2">
+      <div class="col-12 col-md-6">
+        <h4>Info</h4>
+        <div class="d-flex">
+          <div style="width: 10rem">
+            <div *ngIf="!cityUser.user.profilePicture">
+              <img
+                class="imageLayout"
+                src="https://ik.imagekit.io/m7dlwque3gp/temp.png?ik-sdk-version=javascript-1.4.3&updatedAt=1643380745929"
+                alt=""
+              >
+            </div>
+            <img *ngIf="cityUser.user.profilePicture" class="imageLayout" src="{{ cityUser.user.profilePicture }}">
+          </div>
+          <div
+            class="pl-2 mb-0 d-flex flex-column align-items-start text-md-left"
+          >
+            <div>
+              <p class="mb-0 color">Geboortedatum: {{ cityUser.user.dateOfBirth }}</p>
+            </div>
+            <div>
+              <p class="mb-0 color">Geslacht: {{ cityUser.user.gender }}</p>
+            </div>
+
+            <div
+              class="d-flex align-items-start justify-content-center text-md-right"
+            >
+              <div>
+                <p class="mb-0 mt-3 color">Admin in {{cityUser.city.name}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <h4>Contact gegevens</h4>
+        <div class="color">Telefoonnummer: {{ cityUser.user.phoneNumber }}</div>
+        <div class="color">Email: {{ cityUser.user.email }}</div>
+      </div>
+    </div>
+    <div class="col-12 pt-1 pt-md-3">
+      <h4>Biografie</h4>
+      <p class="color">{{ cityUser.user.aboutMe }}</p>
+    </div>
+  </div>
+</div>

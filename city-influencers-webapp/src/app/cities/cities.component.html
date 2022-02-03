@@ -1,0 +1,49 @@
+<div class="bgc custom-scrollbar-css">
+  <div class="px-5">
+    <div class="d-flex pt-3 align-items-center justify-content-between mb-2">
+      <button
+        type="button"
+        class="btn btn-success addBtn m-0 px-2 py-1 text-center"
+        (click)="add()"
+      >
+        <i class="fas fa-plus pr-1"></i>Nieuwe stad
+      </button>
+      <div class="search-box mb-2">
+        <button class="btn-search btn">
+          <i class="fas fa-search color"></i>
+        </button>
+        <input
+          type="text"
+          class="input-search"
+          placeholder="Type om te zoeken..."
+        />
+      </div>
+    </div>
+    <table class="table mt-2" *ngIf="cities && cities.length > 0">
+      <thead>
+        <tr>
+          <th scope="col">Naam</th>
+          <th scope="col">Postcode</th>
+          <th scope="col">Status</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let city of cities">
+          <td>{{ city.name }}</td>
+          <td>{{ city.zipcode }}</td>
+          <td *ngIf="city.isActive">
+            <button (click)="toggleActive(city)" type="button" class="btn p-0">
+              <i class="green fas fa-check"></i>
+            </button>
+          </td>
+          <td *ngIf="!city.isActive">
+            <button (click)="toggleActive(city)" type="button" class="btn p-0">
+              <i class="red fas fa-times"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

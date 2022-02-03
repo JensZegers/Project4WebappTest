@@ -1,0 +1,58 @@
+<div class="bgc custom-scrollbar-css">
+  <h1 class="px-4 pt-2" *ngIf="isAdd">Opdracht toevoegen</h1>
+  <h1 class="px-4 pt-2" *ngIf="isEdit">Opdracht bewerken</h1>
+<form (ngSubmit)="onSubmit()" #assignmentForm="ngForm" class="px-4 py-2" >
+  <div class="form-group">
+    <label for="title">Titel</label>
+    <input type="text" class="form-control" id="title" name="title" placeholder="Titel"
+    [(ngModel)]="assignment.title" #title="ngModel" required>
+
+    <label for="organisation">Organisatie</label>
+    <input type="text" class="form-control" id="organisation" name="organisation" placeholder="Organisatie"
+    [(ngModel)]="assignment.organisation" #organisation="ngModel" required>
+
+    <label for="date">Deadline</label>
+    <input type="date" class="form-control" id="date" name="date" placeholder="Geef een datum"
+    [(ngModel)]="assignment.date" #date="ngModel" required>
+
+    <label for="description">Beschrijving</label>
+    <input type="text" class="form-control" id="description" name="description" placeholder="Beschrijving"
+    [(ngModel)]="assignment.description" #description="ngModel" required>
+
+    <label for="amount">Hoeveelheid influencers</label>
+    <input type="number" class="form-control" id="amount" name="amount" placeholder="Hoeveelheid influencers"
+    [(ngModel)]="assignment.amount" #amount="ngModel" required>
+
+    <label for="image">Foto</label>
+    <ik-upload class="form-control" fileName="assignment" [useUniqueFileName]="true" [isPrivateFile]="false"
+    (onSuccess)="handleUploadSuccess($event)" (onError)="handleUploadError($event)"></ik-upload>
+
+    <label for="cityId">Stad</label>
+    <select id="cityId" class="form-control" [(ngModel)]="assignment.cityId" name="cityId" #cityId="ngModel" aria-placeholder="Kies een stad" required >
+        <option *ngFor="let city of cities" [ngValue]="city.cityId">
+          {{ city.name }}
+        </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <h2>Voucher</h2>
+    <label for="url">Url</label>
+    <input type="text" class="form-control" id="url" name="url" placeholder="url"
+    [(ngModel)]="voucher.url" #url="ngModel" required>
+
+    <label for="organisation">Organisatie</label>
+    <input type="text" class="form-control" id="organisation" name="organisation" placeholder="Organisatie"
+    [(ngModel)]="voucher.organisation" #organisation="ngModel" required>
+
+    <label for="value">Waarde</label>
+    <input type="number" class="form-control" id="value" name="value" placeholder="value"
+    [(ngModel)]="voucher.value" #value="ngModel" required>
+
+    <label for="voucherDescription">Beschrijving</label>
+    <input type="text" class="form-control" id="voucherDescription" name="voucherDescription" placeholder="Beschrijving"
+    [(ngModel)]="voucher.description" #voucherDescription="ngModel" required>
+  </div>
+  <button type="submit" class="btn btn-primary" *ngIf="isAdd" [disabled]="!assignmentForm.valid || isSubmitted">Add</button>
+  <button type="submit" class="btn btn-primary" *ngIf="isEdit" [disabled]="!assignmentForm.valid || isSubmitted">Save</button>
+</form>
+</div>

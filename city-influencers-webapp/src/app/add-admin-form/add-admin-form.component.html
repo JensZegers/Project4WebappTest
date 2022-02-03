@@ -1,0 +1,60 @@
+<div class="bgc">
+  <h1 class="px-4 pt-2" *ngIf="isAdd">Admin toevoegen</h1>
+  <h1 class="px-4 pt-2" *ngIf="isEdit">Admin bewerken</h1>
+  <form (ngSubmit)="onSubmit()" #adminForm="ngForm" class="px-4 py-2">
+    <div class="form-group">
+      <label for="firstName">Voornaam</label>
+      <input
+        type="text"
+        class="form-control"
+        id="firstName"
+        name="firstName"
+        placeholder="Voornaam"
+        [(ngModel)]="admin.firstName"
+        #firstName="ngModel"
+        required
+      />
+
+      <label for="surname">Achternaam</label>
+      <input
+        type="text"
+        class="form-control"
+        id="surname"
+        name="surname"
+        placeholder="Achternaam"
+        [(ngModel)]="admin.surname"
+        #surname="ngModel"
+        required
+      />
+
+      <label for="email">Email</label>
+      <input
+        type="text"
+        class="form-control"
+        id="email"
+        name="email"
+        placeholder="Email"
+        [(ngModel)]="admin.email"
+        #email="ngModel"
+        required
+      />
+
+      <label for="cityId">Stad</label>
+      <select
+        id="cityId"
+        class="form-control"
+        [(ngModel)]="cityUser.cityId"
+        name="cityId"
+        #cityId="ngModel"
+        aria-placeholder="Kies een stad"
+        required
+      >
+        <option *ngFor="let city of cities" [ngValue]="city.cityId">
+          {{ city.name }}
+        </option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary" *ngIf="isAdd" [disabled]="!adminForm.valid || isSubmitted">Add</button>
+  <button type="submit" class="btn btn-primary" *ngIf="isEdit" [disabled]="!adminForm.valid || isSubmitted">Save</button>
+  </form>
+</div>

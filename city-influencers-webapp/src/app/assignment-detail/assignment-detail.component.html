@@ -1,0 +1,60 @@
+<div class="bgc px-1 px-md-5 pb-1 pb-md-3">
+  <div *ngIf="assignment.assignmentId != 0">
+    <div class="col-12 pt-1 pt-md-3">
+      <div class="row bb mb-2">
+        <div (click)="back()" class="pointer">
+          <i class="fas fa-chevron-left pt-2"></i>
+        </div>
+        <h3 class="mx-auto">{{ assignment.title }}</h3>
+      </div>
+    </div>
+    <div class="row pt-1 pt-md-2">
+      <div class="col-12 col-md-6">
+        <h4>Info</h4>
+        <div class="d-flex">
+          <div class="card" style="width: 10rem">
+            <img
+              class="card-img-top"
+              src="{{ assignment.image }}"
+              alt="foto Opdracht"
+            />
+          </div>
+          <div
+            class="pl-2 mb-0 d-flex color flex-column align-items-start text-md-left"
+          >
+            <div class="color">Organisatie: {{ assignment.organisation }}</div>
+            <div class="color">Gemeente: {{ assignment.city.name }}</div>
+            <div class="color">Hoeveelheid: {{ assignment.amount }}</div>
+            <div class="color">Actief: {{ assignment.isActive }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6">
+        <h4>Voucher</h4>
+        <div class="d-flex">
+          <div class="card" style="width: 10rem">
+            <img
+              class="card-img-top"
+              src="{{ assignment.voucher.url }}"
+              alt="foto Voucher"
+            />
+          </div>
+          <div
+            class="pl-2 mb-0 d-flex flex-column align-items-start justify-content-center text-md-left"
+          >
+            <div class="color">{{ assignment.voucher.value }}</div>
+            <div class="color">{{ assignment.voucher.description }}</div>
+            <div class="color">{{ assignment.voucher.organisation }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 pt-1 pt-md-3">
+        <h4>Beschrijving</h4>
+        <p class="color">
+          {{ assignment.description }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

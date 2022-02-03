@@ -1,0 +1,120 @@
+<div class="bgc custom-scrollbar-css">
+  <div class="px-5">
+    <div class="d-flex pt-3 align-items-center justify-content-between mb-2">
+      <button
+        type="button"
+        class="btn btn-success addBtn m-0 px-2 py-1 text-center"
+        (click)="add()"
+      >
+        <i class="fas fa-plus pr-1"></i>Nieuwe opdracht
+      </button>
+      <div class="search-box mb-2">
+        <button class="btn-search btn">
+          <i class="fas fa-search color"></i>
+        </button>
+        <input
+          type="text"
+          class="input-search"
+          placeholder="Type om te zoeken..."
+        />
+      </div>
+    </div>
+    <mat-progress-spinner
+      *ngIf="isLoading"
+      class="mx-auto align-items-center"
+      mode="indeterminate"
+    ></mat-progress-spinner>
+    <table class="table mt-2" *ngIf="assignments && assignments.length > 0">
+      <thead>
+        <tr>
+          <th scope="col">Opdrachten details</th>
+          <th scope="col">Platform</th>
+          <th scope="col">Datum</th>
+          <th scope="col">Influencers</th>
+          <th scope="col">Hoeveelheid</th>
+          <th scope="col">Status</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let assignment of assignments">
+          <td>
+            <div
+              class="pointer d-flex"
+              (click)="toDetail(assignment.assignmentId)"
+            >
+              <div class="d-flex justify-content-start align-items-center">
+                <ik-image
+                  class="imageLayout"
+                  src="{{ assignment.image }}"
+                ></ik-image>
+              </div>
+              <div
+                class="d-flex justify-content-center align-items-left flex-column pl-2"
+              >
+                <div class="lh h-5 black">{{ assignment.title }}</div>
+                <div class="c height pt-2">
+                  {{ assignment.organisation }}, {{ assignment.city.name }}
+                </div>
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="d-flex justify-content-between align-items-center">
+              <img
+                class="socials"
+                src="../../assets/images/insta.png"
+                alt=""
+              /><img
+                class="socials"
+                src="../../assets/images/twitter.png"
+                alt=""
+              /><img
+                class="socials"
+                src="../../assets/images/tiktok.png"
+                alt=""
+              />
+            </div>
+          </td>
+          <td>{{ assignment.date }}</td>
+          <td class="text-center">{{ assignment.amount }}</td>
+          <td class="text-center">€{{ assignment.voucher.value }}</td>
+          <td *ngIf="assignment.isActive" class="text-center">
+            <button
+              (click)="toggleActive(assignment)"
+              type="button"
+              class="btn p-0"
+            >
+              <i class="green fas fa-check"></i>
+            </button>
+          </td>
+          <td *ngIf="!assignment.isActive" class="text-center">
+            <button
+              (click)="toggleActive(assignment)"
+              type="button"
+              class="btn p-0"
+            >
+              <i class="red fas fa-times"></i>
+            </button>
+          </td>
+          <td>
+            <button
+              type="button"
+              class="btn m-2 px-2 py-0"
+              (click)="edit(assignment.assignmentId)"
+            >
+              <i class="fas fa-edit"></i>
+            </button>
+            <button
+              type="button"
+              class="btn m-2 px-2 py-0"
+              (click)="delete(assignment.assignmentId)"
+            >
+              <i class="far fa-trash-alt"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

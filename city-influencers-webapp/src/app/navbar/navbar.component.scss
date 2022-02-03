@@ -1,0 +1,106 @@
+.navColor{
+  background-color: #FFFF !important;
+}
+
+.itemColor{
+  color: #33B7C7 !important;
+
+  &:hover{
+    color: #29919d !important;
+  }
+}
+img{
+  width: 90px;
+  height: auto;
+}
+
+.navbar-nav>.active>a, .navbar-nav>.active>a:hover, .navbar-nav>.active>a:focus {
+  color:#237882 !important;
+}
+
+.nav-link{
+  font-weight: 400;
+  color: #33B7C7 !important;
+  &:hover{
+    color: #237882 !important;
+  }
+}
+
+.name{
+  color: #000 !important;
+}
+
+ nav .nav-link::after {
+  display: block;
+  content: "";
+  width: 0%;
+  height: 2px;
+  background-color: #237882;
+  font-weight: bold;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+nav .nav-link:hover:after {
+  width: 100%;
+}
+
+.navbar-toggler span {
+  display: block;
+  width: 30px;
+  height: 2px;
+  margin: 6px auto;
+  background: #33B7C7;
+  -webkit-transition: all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition: all 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.navbar-toggler[aria-expanded=true] span:first-of-type {
+  -webkit-transform: rotate(45deg) translate(6px, 6px);
+          transform: rotate(45deg) translate(6px, 6px);
+}
+.navbar-toggler[aria-expanded=true] span:nth-of-type(2) {
+  opacity: 0;
+}
+.navbar-toggler[aria-expanded=true] span:last-of-type {
+  -webkit-transform: rotate(-45deg) translate(5px, -5px);
+          transform: rotate(-45deg) translate(5px, -5px);
+}
+.navbar-toggler[aria-expanded=false] span {
+  -webkit-transform: none;
+          transform: none;
+  opacity: 1;
+}
+
+.navbar-toggler {
+  border-color: #023047;
+
+  &:focus {
+    background: none;
+    outline: 0;
+  }
+}
+
+.imageLayout{
+  width: 50px;
+  height: auto;
+}
+
+.btn{
+  padding: 0;
+}
+
+.br{
+  border-radius: 50%;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0; // remove the gap so it doesn't close
+}
+
+.btn:focus{
+  box-shadow: none;
+}
+
+.color{
+  color: #000;
+}

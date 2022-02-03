@@ -1,0 +1,131 @@
+<div class="bgc custom-scrollbar-css">
+  <h1 class="px-4 pt-2" *ngIf="isAdd">Admin toevoegen</h1>
+  <h1 class="px-4 pt-2" *ngIf="isEdit">Profiel bewerken</h1>
+  <form (ngSubmit)="onSubmit()" #adminForm="ngForm" class="px-4 py-2">
+    <div class="form-group">
+      <label for="firstName">Voornaam</label>
+      <input
+        type="text"
+        class="form-control"
+        id="firstName"
+        name="firstName"
+        placeholder="Voornaam"
+        [(ngModel)]="admin.firstName"
+        #firstName="ngModel"
+        required
+      />
+
+      <label for="surname">Achternaam</label>
+      <input
+        type="text"
+        class="form-control"
+        id="surname"
+        name="surname"
+        placeholder="Achternaam"
+        [(ngModel)]="admin.surname"
+        #surname="ngModel"
+        required
+      />
+
+      <label for="password">Wachtwoord</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        name="surpasswordname"
+        placeholder="Wachtwoord"
+        [(ngModel)]="admin.password"
+        #password="ngModel"
+        aria-describedby="passwordHelpBlock"
+        required
+      />
+      <small id="passwordHelpBlock" class="form-text text-muted">
+        Uw wachtwoord moet 8-20 tekens lang zijn, letters en cijfers bevatten,
+        en mag geen spaties, speciale tekens of emoji bevatten.
+      </small>
+
+      <label for="email">Geslacht</label>
+      <select
+        class="form-control"
+        id="gender"
+        name="gender"
+        placeholder="Geslacht"
+        [(ngModel)]="admin.gender"
+        #gender="ngModel"
+        required
+      >
+        <option>Man</option>
+        <option>Vrouw</option>
+        <option>Niet gespecifieerd</option>
+      </select>
+
+      <label for="email">Email</label>
+      <input
+        type="text"
+        class="form-control"
+        id="email"
+        name="email"
+        placeholder="Email"
+        [(ngModel)]="admin.email"
+        #email="ngModel"
+        required
+      />
+
+      <label for="email">Geboortedatum</label>
+      <input
+        type="date"
+        class="form-control"
+        id="dateOfBirth"
+        name="dateOfBirth"
+        placeholder="Geboortedatum"
+        [(ngModel)]="admin.dateOfBirth"
+        #dateOfBirth="ngModel"
+        required
+      />
+
+      <label for="phoneNumber">Telefoonnummer</label>
+      <input
+        type="text"
+        class="form-control"
+        id="phoneNumber"
+        name="phoneNumber"
+        placeholder="Telefoonnummer"
+        [(ngModel)]="admin.phoneNumber"
+        #phoneNumber="ngModel"
+        required
+      />
+
+      <label for="aboutMe">Een kort tekstje over jezelf</label>
+      <textarea
+        class="form-control"
+        id="aboutMe"
+        name="aboutMe"
+        placeholder="Over mij"
+        [(ngModel)]="admin.aboutMe"
+        #aboutMe="ngModel"
+      >
+      </textarea>
+
+      <label for="image">Profielfoto</label>
+    <ik-upload class="form-control" fileName="assignment" [useUniqueFileName]="true" [isPrivateFile]="false"
+    (onSuccess)="handleUploadSuccess($event)" (onError)="handleUploadError($event)"></ik-upload>
+
+    </div>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      *ngIf="isAdd"
+      [disabled]="!adminForm.valid || isSubmitted"
+    >
+      Add
+    </button>
+    <button
+      type="submit"
+      class="btn btn-primary"
+      *ngIf="isEdit"
+      [disabled]="!adminForm.valid || isSubmitted"
+    >
+      Save
+    </button>
+  </form>
+</div>

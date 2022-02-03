@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-between">
+  <div *ngIf="platformAccount.platform.platformId == 1">
+    <a
+      href="https://www.instagram.com/{{ platformAccount.username }}"
+      class="d-flex align-items-center insta py-1 px-2"
+    >
+      <img src="../../assets/images/insta.png" alt="Instagram icon" />
+      <p class="mb-0 pl-2 color">300</p>
+    </a>
+  </div>
+  <div *ngIf="platformAccount.platform.platformId == 3">
+    <a href="https://twitter.com/{{platformAccount.username}}" class="d-flex align-items-center pl-2 mx-2 twitter py-1 px-2">
+      <img src="../../assets/images/twitter.png" alt="Twitter icon" />
+      <p class="mb-0 pl-2 color">300</p>
+    </a>
+  </div>
+  <div *ngIf="platformAccount.platformId == 2">
+    <a href="https://www.tiktok.com/@{{platformAccount.username}}" class="d-flex align-items-center pl-2 tiktok py-1 px-2">
+      <img src="../../assets/images/tiktok.png" alt="Tiktok icon" />
+      <p class="mb-0 pl-2 color">300</p>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+.bgc{
+    background-color: rgba(0, 0, 0, 0.15);
+    box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+  }
+
+  img{
+    width: 100%;
+    height: auto;
+  }
+
+  .card{
+    background-color: transparent !important;
+    border: none;
+  }
+
+  .color{
+    color: #2b92a0;
+  }
+
+  .card-body{
+    padding: 0;
+  }
+
+  .center-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    i{
+      margin-right: 8px;
+    }
+    div{
+      margin-top: 2px;
+    }
+  }
+
+  .pointer{
+    cursor: pointer;
+  }

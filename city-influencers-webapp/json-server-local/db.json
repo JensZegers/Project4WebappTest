@@ -1,0 +1,146 @@
+{
+  "users": [
+    {
+      "email": "admin@mail.com",
+      "password": "$2a$10$NcqZhDfM.h/Knlasn5djT.e514sqotWmUsBYdq/AfoQGZtRTfiY72",
+      "id": 4
+    },
+    {
+      "id": 1,
+      "firstName": "Jeroen",
+      "surname": "Cavens",
+      "dateOfBirth": "10/10/2001",
+      "profilepicture": "",
+      "address": "Bottelarijstraat 7",
+      "phoneNumber": "0123456789",
+      "gender": "M",
+      "email": "jeroen.cavens1@gmail.com",
+      "password": "password",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "firstName": "Jorne",
+      "surname": "Marx",
+      "dateOfBirth": "15/05/2001",
+      "profilepicture": "",
+      "address": "Teststraat 1",
+      "phoneNumber": "9876543210",
+      "gender": "M",
+      "email": "jorne.marx@gmail.com",
+      "password": "passworddd",
+      "role": "influencer"
+    },
+    {
+      "id": 3,
+      "firstName": "Kent",
+      "surname": "Van Den Heuvel",
+      "dateOfBirth": "1/07/2000",
+      "profilepicture": "",
+      "address": "Teststraat 10",
+      "phoneNumber": "9876543210",
+      "gender": "M",
+      "email": "kent.vandenheuvel@gmail.com",
+      "password": "passwordsiuuu",
+      "role": "trustedInfluencer"
+    }
+  ],
+  "acceptedAssingments": [
+    {
+      "id": 2,
+      "assignmentId": 2,
+      "userId": 2,
+      "title": "AcceptedAssignment Title2",
+      "description": "this is the description of the second accepted assignment",
+      "date": "14/01/2022"
+    }
+  ],
+  "assignments": [
+    {
+      "organisation": "Cipal",
+      "city": "Geel",
+      "description": "Drink een pintje",
+      "amount": 40,
+      "title": "Titel",
+      "image": "",
+      "id": 1,
+      "isActive": true,
+      "voucher": [
+        {
+          "id": 1,
+          "url": "testttt",
+          "organisation": "Cafe de campus",
+          "value": "5",
+          "description": "Een gratis drankje"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "voucherId": 2,
+      "organisation": "Thomas More",
+      "city": "Geel",
+      "description": "Drink geen pintje",
+      "amount": 20,
+      "image": "",
+      "title": "Titel2",
+      "isActive": false,
+      "voucher": [
+        {
+          "id": 2,
+          "url": "testttt",
+          "organisation": "Cafe de campus",
+          "value": "5",
+          "description": "Een gratis drankje"
+        }
+      ]
+    },
+    {
+      "organisation": "Cipal",
+      "city": "Olen",
+      "description": "etreojoeprjgez",
+      "amount": 23,
+      "title": "ASsstest",
+      "id": 3,
+      "image": "",
+      "isActive": false
+    }
+  ],
+  "vouchers": [
+    {
+      "id": 1,
+      "url": "testttts",
+      "organisation": "Cafe de campuss",
+      "value": "55",
+      "description": "Een gratis drankjee"
+    },
+    {
+      "id": 2,
+      "url": "testUrl",
+      "organisation": "Thomas More Geel",
+      "value": "1",
+      "description": "Een gratis pen"
+    },
+    {
+      "id": 3,
+      "url": "src/test/1.png",
+      "organisation": "Huzur kebab Geel",
+      "value": "10",
+      "description": "Korting bij minimum 20 euro bestelling"
+    }
+  ],
+  "socialMediaPosts": [
+    {
+      "id": 1,
+      "acceptedAssignmentId": 1,
+      "platform": "instagram",
+      "date": "18/01/2022"
+    },
+    {
+      "id": 2,
+      "acceptedAssignmentId": 2,
+      "platform": "tiktok",
+      "date": "17/01/2022"
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+<div class="bgc px-1 px-md-5 pb-1 pb-md-3">
+  <div *ngIf="user.userId != 0">
+    <div class="col-12 pt-1 pt-md-3">
+      <div class="row bb mb-2">
+        <div (click)="back()">
+          <i class="pointer fas fa-chevron-left pt-2"></i>
+        </div>
+        <h3 class="mx-auto d-flex">
+          {{ user.firstName }} {{ user.surname
+          }}<i
+            matTooltip="Trusted influencer"
+            *ngIf="user.roleId === 4"
+            class="fas fa-check-circle pl-2 center-icon"
+          ></i
+          ><i
+            matTooltip="Niet actieve influencer"
+            *ngIf="!user.isActive"
+            class="fas fa-exclamation pl-2 center-icon"
+          ></i>
+        </h3>
+      </div>
+    </div>
+    <div class="row pt-1 pt-md-2">
+      <div class="col-12 col-md-6">
+        <h4>Info</h4>
+        <div class="d-flex">
+          <div class="card" style="width: 10rem">
+            <ik-image
+              class="card-img-top"
+              src="{{ user.profilePicture }}"
+              alt="Profielfoto"
+            ></ik-image>
+          </div>
+
+          <div
+            class="pl-2 mb-0 d-flex flex-column align-self-start text-md-left"
+          >
+            <div class="align-self-start">
+              <div class="align-self-end">
+                <p class="mb-0 colorText">
+                  Geboortedatum: {{ user.dateOfBirth }}
+                </p>
+              </div>
+              <div class="align-self-end">
+                <p class="colorText mb-0">Geslacht: {{ user.gender }}</p>
+              </div>
+            </div>
+            <div
+              class="d-flex align-self-start justify-content-center text-md-right"
+            >
+              <div *ngFor="let account of platformAccounts">
+                <app-socials [influencer]="account.user" [platform]="account.platform" [platformAccount]="account"></app-socials>
+              </div>
+            </div>
+            <div>
+              <button
+                type="button"
+                *ngIf="!user.isActive"
+                class="btn acceptButton"
+                (click)="accept(user)"
+              >
+                Goedkeuren
+              </button>
+              <button
+                type="button"
+                *ngIf="user.isActive && user.roleId === 3"
+                class="btn disActivateButton"
+                (click)="disActivate(user)"
+              >
+                Maak niet actief
+              </button>
+              <button
+                type="button"
+                *ngIf="user.isActive && user.roleId === 3"
+                class="btn trustButton"
+                (click)="trust(user)"
+              >
+                Vertrouw
+              </button>
+              <button
+                type="button"
+                *ngIf="user.isActive && user.roleId === 4"
+                class="btn disActivateButton"
+                (click)="disTrust(user)"
+              >
+                Maak niet vertrouwd
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <h4>Biografie</h4>
+        <p class="colorText">{{ user.aboutMe }}</p>
+      </div>
+      <div class="col-12 pt-2">
+        <div>
+          <h4>Recente posts</h4>
+        </div>
+        <div class="d-flex">
+          <div class="card pr-2" style="width: 10rem">
+            <img class="card" src="../../assets/FoodTestImage.jpg" alt="Food" />
+            <div class="card-body pt-1">
+              <p class="card-text text-center mb-0 textColor">
+                Lokaal Take Away
+              </p>
+              <p class="color card-text text-center">€250</p>
+            </div>
+          </div>
+          <div class="card pr-2" style="width: 10rem">
+            <img
+              class="card"
+              src="../../assets/drinkenTestImage.jpg"
+              alt="Drinken"
+            />
+            <div class="card-body pt-1">
+              <p class="card-text text-center mb-0 textColor">Drinken</p>
+              <p class="color card-text text-center">€350</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

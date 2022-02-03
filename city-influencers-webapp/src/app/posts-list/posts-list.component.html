@@ -1,0 +1,24 @@
+  <div class="bgc custom-scrollbar-css pt-2">
+  <h3 class="text-center">New posts</h3>
+  <div class="px-1 px-sm-2 px-lg-4 table-responsive">
+  <table class="table table-hover">
+      <tr *ngFor="let post of posts">
+        <td>
+          <div>
+            <div *ngIf="post.platform.name == 'instagram'">
+            <img  src="../../assets/images/insta.png" alt="">
+          </div>
+          <div *ngIf="post.platform.name == 'tiktok'">
+            <img  src="../../assets/images/tiktok.png" alt="">
+          </div>
+          <div *ngIf="post.platform.name == 'twitter'">
+            <img  src="../../assets/images/twitter.png" alt="">
+          </div>
+        </div>
+        </td>
+        <td>{{post.acceptedAssignment.title}}</td>
+        <td>{{post.date}}</td>
+      </tr>
+  </table>
+</div>
+</div>

@@ -1,0 +1,44 @@
+<div class="bgc custom-scrollbar-css" >
+  <div class="px-5">
+    <div class="d-flex pt-3 align-items-center justify-content-between">
+      <button
+        type="button"
+        class="btn btn-success addBtn m-0 px-2 py-1 text-center"
+        (click)="add()"
+      >
+        <i class="fas fa-plus pr-1"></i>Admin aanmaken
+      </button>
+      <div class="search-box mb-2">
+        <button class="btn-search btn">
+          <i class="fas fa-search color"></i>
+        </button>
+        <input
+          type="text"
+          class="input-search"
+          placeholder="Type om te zoeken..."
+        />
+      </div>
+    </div>
+    <mat-progress-spinner *ngIf="isLoading" class="mx-auto align-items-center"  mode="indeterminate"></mat-progress-spinner>
+    <table class="table mt-2" *ngIf="admins && admins.length>0">
+      <thead>
+        <th>Naam</th>
+        <th>Telefoonnummer</th>
+        <th>Email</th>
+        <th>Stad</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let admin of cityUsers">
+          <td>
+            <div class="black">{{admin.user.firstName}} {{admin.user.surname}}</div>
+          </td>
+          <td>{{admin.user.phoneNumber}}</td>
+          <td>{{admin.user.email}}</td>
+          <td>{{admin.city.name}}</td>
+          <td><i (click)="toDetail(admin.userId)" class="pointer fas fa-chevron-right"></i></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="bgc custom-scrollbar-css">
+  <div class="px-5">
+    <div class="d-flex pt-3 align-items-center justify-content-between mb-2">
+      <h1>Vouchers</h1>
+      <div class="search-box mb-2">
+        <button class="btn-search btn">
+          <i class="fas fa-search color"></i>
+        </button>
+        <input
+          type="text"
+          class="input-search"
+          placeholder="Type om te zoeken..."
+        />
+      </div>
+    </div>
+    <mat-progress-spinner *ngIf="isLoading" class="mx-auto align-items-center"  mode="indeterminate"></mat-progress-spinner>
+    <table class="table mt-2" *ngIf="vouchers && vouchers.length > 0">
+      <thead>
+        <tr>
+          <th scope="col">URL</th>
+          <th scope="col">Organisatie</th>
+          <th scope="col">Waarde</th>
+          <th scope="col">Beschrijving</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let voucher of vouchers">
+          <td scope="row">{{ voucher.url }}</td>
+          <td>{{ voucher.organisation }}</td>
+          <td>{{ voucher.value }}</td>
+          <td>
+            <div class="pointer" (click)="toDetail(voucher.voucherId)">
+              <div class="lh black">{{ voucher.description }}</div>
+            </div>
+          </td>
+          <td>
+            <button
+              type="button"
+              class="btn m-2 px-2 py-0"
+              (click)="edit(voucher.voucherId)"
+            >
+              <i class="fas fa-edit"></i>
+            </button>
+            <button
+              type="button"
+              class="btn m-2 px-2 py-0"
+              (click)="delete(voucher.voucherId)"
+            >
+              <i class="far fa-trash-alt"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

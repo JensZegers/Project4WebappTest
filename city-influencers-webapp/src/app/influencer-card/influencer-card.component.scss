@@ -1,0 +1,49 @@
+.imageLayout{
+  width: auto;
+  height: 120px;
+  border-radius: 15px;
+}
+
+.bb{
+  border-bottom: 1px solid #FFFF;
+}
+
+p{
+ font-weight: 300;
+}
+
+.bbsocial{
+  border-top: 1px solid #d0d0d060;
+}
+
+.readMore{
+  font-size: 15px;
+  padding: 5px;
+  margin: 4px 2px;
+  border-radius: 16px;
+  background-color: #39B8F9;
+  color: #FFFF;
+  &:hover{
+    background-color: #2e92c4;
+  }
+}
+
+.bg{
+  background-color: rgba(66, 155, 174, 1);
+  border-radius: 10px;
+}
+
+h5{
+  width: fit-content;
+}
+
+.fa-check-circle{
+  color: #60caff;
+  font-size: 20px;
+}
+
+.fa-exclamation{
+  color: red;
+}
+
+

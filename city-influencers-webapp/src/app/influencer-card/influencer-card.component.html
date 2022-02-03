@@ -1,0 +1,49 @@
+<div class="p-2 bg">
+  <div class="d-flex pb-2">
+    <div *ngIf="!influencer.profilePicture">
+      <ik-image
+        class="imageLayout"
+        src="https://ik.imagekit.io/m7dlwque3gp/temp.png?ik-sdk-version=javascript-1.4.3&updatedAt=1643380745929"
+        alt=""
+      ></ik-image>
+    </div>
+    <ik-image
+      class="imageLayout"
+      src="{{ influencer.profilePicture }}"
+    ></ik-image>
+    <div class="pl-3 w-100">
+      <div class="d-flex justify-content-between">
+        <h5 class="bb">{{ influencer.firstName }} {{ influencer.surname }}</h5>
+        <div *ngIf="!influencer.isActive">
+          <i
+            matTooltip="Niet actieve influencer"
+            class="fas fa-exclamation"
+          ></i>
+        </div>
+        <div *ngIf="influencer.roleId === 4">
+          <i matTooltip="Trusted influencer" class="fas fa-check-circle"></i>
+        </div>
+      </div>
+      <p class="mb-0">{{ influencer.aboutMe }}</p>
+    </div>
+  </div>
+  <div class="bbsocial d-flex align-items-start justify-content-between pt-2">
+    <div class="d-flex justify-content-between">
+      <div *ngFor="let account of platformAccounts">
+        <app-socials
+          [influencer]="influencer"
+          [platform]="account.platform"
+          [platformAccount]="account"
+        ></app-socials>
+      </div>
+    </div>
+    <div>
+      <button
+        (click)="toDetail(influencer.userId)"
+        class="btn readMore py-1 px-2"
+      >
+        Lees meer
+      </button>
+    </div>
+  </div>
+</div>

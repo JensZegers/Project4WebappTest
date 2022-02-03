@@ -1,0 +1,22 @@
+<div class="bgc pb-3 custom-scrollbar-css">
+  <div class="px-5">
+    <div class="d-flex pt-3 align-items-center justify-content-between bb mb-2">
+      <h1>Influencers</h1>
+      <div class="search-box mb-2">
+        <button class="btn-search btn"><i class="fas fa-search color"></i></button>
+        <input type="text" class="input-search" placeholder="Type om te zoeken...">
+      </div>
+    </div>
+    <div class="row">
+      <mat-progress-spinner *ngIf="isLoading" class="mx-auto my-auto align-items-center justify-content-center"  mode="indeterminate"></mat-progress-spinner>
+    <div
+      class=" col-12 col-md-6 pt-2 px-1"
+      *ngFor="let influencer of influencers"
+    >
+      <app-influencer-card
+        [influencer]="influencer"
+      ></app-influencer-card>
+    </div>
+  </div>
+</div>
+</div>

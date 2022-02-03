@@ -1,0 +1,25 @@
+<div class="bgc">
+  <h1 class="px-4 pt-2" *ngIf="isAdd">Add voucher</h1>
+  <h1 class="px-4 pt-2" *ngIf="isEdit">Edit voucher</h1>
+<form (ngSubmit)="onSubmit()" #voucherForm="ngForm" class="px-4 py-2">
+    <div class="form-group">
+      <label for="url">Url</label>
+      <input type="text" class="form-control" id="url" name="url" placeholder="url"
+      [(ngModel)]="voucher.url" #url="ngModel" required>
+
+      <label for="organisation">Organisation</label>
+      <input type="text" class="form-control" id="organisation" name="organisation" placeholder="organisation"
+      [(ngModel)]="voucher.organisation" #organisation="ngModel" required>
+
+      <label for="value">Value</label>
+      <input type="text" class="form-control" id="value" name="value" placeholder="value"
+      [(ngModel)]="voucher.value" #value="ngModel">
+
+      <label for="description">Description</label>
+      <input type="text" class="form-control" id="description" name="description" placeholder="description"
+      [(ngModel)]="voucher.description" #description="ngModel">
+    </div>
+    <button type="submit" class="btn btn-primary" *ngIf="isAdd" [disabled]="!voucherForm.valid || isSubmitted">Add</button>
+    <button type="submit" class="btn btn-primary" *ngIf="isEdit" [disabled]="!voucherForm.valid || isSubmitted">Save</button>
+  </form>
+</div>

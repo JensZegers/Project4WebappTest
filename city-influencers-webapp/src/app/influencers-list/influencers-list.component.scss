@@ -1,0 +1,45 @@
+.bgc{
+  background-color: #FFFF;
+  box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.14),0px 3px 3px -2px rgba(0,0,0,0.12),0px 1px 8px 0px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  height: 100%;
+  max-height: 83vh;
+}
+.table th, .table td {
+  border-top: 1px solid #D0D0D0;
+}
+
+.c{
+  padding: 12px;
+  color: #000;
+}
+
+h3{
+  color: #767676;
+}
+
+.center-icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  i{
+    margin-right: 8px;
+  }
+  div{
+    margin-top: 2px;
+  }
+}
+
+tr:hover{
+  cursor: pointer;
+}
+
+.fa-exclamation{
+  color: red;
+}
+
+.fa-check-circle{
+  color: green;
+}
+
+

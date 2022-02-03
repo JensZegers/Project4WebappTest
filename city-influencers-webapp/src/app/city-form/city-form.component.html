@@ -1,0 +1,18 @@
+<div class="bgc">
+  <h1 class="px-4 pt-2" *ngIf="isAdd">Stad toevoegen</h1>
+  <h1 class="px-4 pt-2" *ngIf="isEdit">Stad bewerken</h1>
+<form (ngSubmit)="onSubmit()" #cityForm="ngForm" class="px-4 py-2">
+    <div class="form-group">
+      <label for="name">Naam</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Naam"
+      [(ngModel)]="city.name" #name="ngModel" required>
+
+      <label for="zipcode">Postcode</label>
+      <input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="Postcode"
+      [(ngModel)]="city.zipcode" #zipcode="ngModel" required>
+
+    </div>
+    <button type="submit" class="btn btn-primary" *ngIf="isAdd" [disabled]="!cityForm.valid || isSubmitted">Add</button>
+    <button type="submit" class="btn btn-primary" *ngIf="isEdit" [disabled]="!cityForm.valid || isSubmitted">Save</button>
+  </form>
+</div>
